@@ -26,7 +26,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.SUPER_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{steps.get-id.outputs.id}}-java
           release_name: ${{steps.get-id.outputs.id}}-java
@@ -34,14 +34,14 @@ jobs:
           prerelease: false
           body_path: RELEASENOTES
       - name: Zip release
-        working-directory: AllInOneRunner/target/quarkus-app
+        working-directory: epafi/target/quarkus-app
         run: zip -qq -r epafi.zip *
       - name: Upload Release all-in-one-runner
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.SUPER_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./AllInOneRunner/target/quarkus-app/epafi.zip
+          asset_path: ./epafi/target/quarkus-app/epafi.zip
           asset_name: epafi-java-${{steps.get-id.outputs.id}}.zip
           asset_content_type: application/zip
