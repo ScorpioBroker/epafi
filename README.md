@@ -1,4 +1,4 @@
-#Epafi - connect LLMs with NGSI-LD
+# Epafi - connect LLMs with NGSI-LD
 ![](https://badge.mcpx.dev?type=server 'MCP Server')
 [![License: BSD-3-Clause](https://img.shields.io/badge/license-BSD%203%20Clause-blue.svg)](https://spdx.org/licenses/BSD-3-Clause.html)
 ![NGSI-LD badge](https://img.shields.io/badge/NGSI-LD-red.svg) 
