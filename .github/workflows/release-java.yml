@@ -1,0 +1,47 @@
+name: Release Java version
+on: 
+  push:
+    branches: "release/**"
+jobs:
+  build-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2     
+      - name: Set up JDK 1.17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.17
+      - name: Install zip
+        uses: montudor/action-zip@v1
+      - name: Get release number
+        id: get-id
+        run: |
+          id=$(echo ${{github.ref_name}} | cut -d/ -f2)
+          echo "::set-output name=id::$id"
+      - name: build-java
+        run: |
+          find . -name "pom.xml" -exec sed -i 's/${{steps.get-id.outputs.id}}-SNAPSHOT/${{steps.get-id.outputs.id}}/g' {} +
+          mvn clean package
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_SECRET }}
+        with:
+          tag_name: ${{steps.get-id.outputs.id}}-java
+          release_name: ${{steps.get-id.outputs.id}}-java
+          draft: false
+          prerelease: false
+          body_path: RELEASENOTES
+      - name: Zip release
+        working-directory: AllInOneRunner/target/quarkus-app
+        run: zip -qq -r epafi.zip *
+      - name: Upload Release all-in-one-runner
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_SECRET }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./AllInOneRunner/target/quarkus-app/epafi.zip
+          asset_name: epafi-java-${{steps.get-id.outputs.id}}.zip
+          asset_content_type: application/zip

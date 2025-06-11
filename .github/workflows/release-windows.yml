@@ -1,0 +1,50 @@
+name: Release windows version
+on: 
+  push:
+    branches: "quarkus-release/**"
+jobs:
+  build-windows-aaio:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2     
+      - name: Configure Pagefile
+        uses: al-cheb/configure-pagefile-action@v1.2
+        with:
+          minimum-size: 16GB
+          maximum-size: 16GB
+          disk-root: "C:"
+      - name: Setup GraalVM
+        uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '17' # for a specific JDK 17; or '17' for the latest JDK 17
+          distribution: 'mandrel'
+          version: 'mandrel-23.0.1.2-Final'
+      - name: Get release number
+        id: get-id
+        shell: pwsh
+        run: |
+          $id='${{github.ref_name}}'.split('/')[1]
+          echo "::set-output name=id::$id"
+      - name: build-windows
+        run: |
+          mvn clean package -Pnative
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_SECRET }}
+        with:
+          tag_name: ${{steps.get-id.outputs.id}}-windows
+          release_name: ${{steps.get-id.outputs.id}}-windows
+          draft: false
+          prerelease: false
+          body_path: RELEASENOTES
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_SECRET }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: Epafi/target/epafi-${{steps.get-build-id.outputs.id}}-runner.exe
+          asset_name: epafi-${{steps.get-id.outputs.id}}-windows.exe
+          asset_content_type: application/octet-stream
