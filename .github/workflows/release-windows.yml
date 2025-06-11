@@ -1,7 +1,7 @@
 name: Release windows version
 on: 
   push:
-    branches: "quarkus-release/**"
+    branches: "release/**"
 jobs:
   build-windows-aaio:
     runs-on: windows-latest
