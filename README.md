@@ -36,7 +36,7 @@ The config params for mcp descriptions are structured like this
 mcp.<internal_tool_name>.description for the tool description set this to "deactivated" if you want to deactivate a tool
 mcp.<internal_tool_name>.<tool_arg_name> descriptions for the tool arg
 
-You can change these settings also via env vars (config names change to all capital letters and underscore instead of dot) or command line. Please have a look here for more details (https://quarkus.io/guides/config-reference)[https://quarkus.io/guides/config-reference].
+You can change these settings also via env vars (config names change to all capital letters and underscore instead of dot) or command line. Please have a look here for more details [https://quarkus.io/guides/config-reference](https://quarkus.io/guides/config-reference).
 
 
 
@@ -45,16 +45,20 @@ You can change these settings also via env vars (config names change to all capi
 
 Epafi is written using Quarkus and the Qurarkiverse and supports native building. 
 If you want to disable support for one of the transport modes you have to remove/comment it in the pom.xml.
-
+Java build
+```
 mvn clean package 
-
+```
+Native build
+```
 mvn clean package -Pnative
-
+```
 ## Claude config
 
-For detailed explanation please refer to (https://modelcontextprotocol.io/quickstart/user)[https://modelcontextprotocol.io/quickstart/user].
+For a detailed explanation please refer to [https://modelcontextprotocol.io/quickstart/user](https://modelcontextprotocol.io/quickstart/user).
 
 In Claude Desktop go to the menu -> File -> Settings. Click on Developer and click on Edt Config this will open the folder with the claude_desktop_config.json. Edit it and add a config as below to it
+```
 {
   "mcpServers": {
     "epafi": {
@@ -63,9 +67,9 @@ In Claude Desktop go to the menu -> File -> Settings. Click on Developer and cli
     }
   }
 }
-
+```
 If you are using the a native built executable you can call it directly in the command part
-
+```
 {
   "mcpServers": {
     "epafi": {
@@ -73,7 +77,7 @@ If you are using the a native built executable you can call it directly in the c
     }
   }
 }
-   
+```
 ## FAQ
 
 Why aren't you using the @Tool and @ToolArgs annotations?
