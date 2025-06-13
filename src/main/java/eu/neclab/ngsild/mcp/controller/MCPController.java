@@ -381,7 +381,7 @@ public class MCPController {
 			String geometryProperty, String geoproperty, String georel, String id, String idPattern, String join,
 			Integer joinLevel, String jsonKeys, String lang, String omit, String pick, String q, String scopeQ,
 			String type) {
-		HttpRequest<Buffer> tmp = webClient.getAbs(baseUrl + "/ngsi-ld/v1/entities");
+		HttpRequest<Buffer> tmp = webClient.getAbs(baseUrl + "/ngsi-ld/v1/entities").putHeader("Accept", "application/json");
 		if (id != null) {
 			tmp.addQueryParam("id", id);
 		}
@@ -424,7 +424,7 @@ public class MCPController {
 	}
 
 	public Uni<String> getTypes() {
-		return webClient.getAbs(baseUrl + "/ngsi-ld/v1/types").addQueryParam("details", "true")
+		return webClient.getAbs(baseUrl + "/ngsi-ld/v1/types").putHeader("Accept", "application/json").addQueryParam("details", "true")
 				.addQueryParam("bbox", "true").send().onItem().transform(resp -> resp.bodyAsString());
 
 	}
