@@ -63,7 +63,8 @@ In Claude Desktop go to the menu -> File -> Settings. Click on Developer and cli
   "mcpServers": {
     "epafi": {
       "command": "java",
-      "args": ["-jar", "<Your build folder>/quarkus-app/quarkus-run.jar"]
+      "args": ["-jar", "<Your build folder>/quarkus-app/quarkus-run.jar"],
+      "initializationTimeout": 10000
     }
   }
 }
@@ -73,11 +74,14 @@ If you are using the a native built executable you can call it directly in the c
 {
   "mcpServers": {
     "epafi": {
-      "command": "<path to epafi>/epafi.exe"
+      "command": "<path to epafi>/epafi.exe",
+      "initializationTimeout": 10000
     }
   }
 }
 ```
+
+The initializationTimeout is required at the moment as Claude doesn't seem to support list_update notifications.
 ## FAQ
 
 Why aren't you using the @Tool and @ToolArgs annotations?
