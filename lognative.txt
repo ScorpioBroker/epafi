@@ -1,0 +1,121 @@
+(base) hebgen@c699:~/epafi/target/quarkus-app$ java -Dquarkus.http.port=22222 -Dquarkus.log.level=DEBUG -jar quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2025-07-14 11:42:30,762 DEBUG [org.jbo.logging] (main) Logging Provider: org.jboss.logging.JBossLogManagerProvider
+2025-07-14 11:42:30,797 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+2025-07-14 11:42:30,797 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+2025-07-14 11:42:30,797 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+2025-07-14 11:42:30,797 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=jar:file:///home/hebgen/epafi/target/quarkus-app/app/ngsild4ai-1.0.0-SNAPSHOT.jar!/application.properties] with ordinal 250
+2025-07-14 11:42:30,797 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+2025-07-14 11:42:30,923 DEBUG [io.qua.arc.impl] (main) ArC DI container initialized [beans=66, observers=5]
+2025-07-14 11:42:30,935 DEBUG [io.qua.arc.impl] (main) Loaded 50 removed beans lazily
+2025-07-14 11:42:30,935 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.common.runtime.serialisers.vertx.VertxJsonArrayBasicMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,936 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.common.runtime.serialisers.vertx.VertxJsonObjectBasicMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,937 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.common.runtime.serialisers.vertx.VertxJsonArrayBasicMessageBodyReader and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,937 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.common.runtime.serialisers.vertx.VertxJsonObjectBasicMessageBodyReader and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,943 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerVertxBufferMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,943 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerMutinyBufferMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,943 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerVertxAsyncFileMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,944 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerMutinyAsyncFileMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.QuarkusServerPathBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerCharArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerByteArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFormUrlEncodedProvider and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerInputStreamMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,945 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.StreamingOutputMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerReaderBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFileBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFilePartBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.core.multipart.MultipartMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerPathBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerPathPartBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerBooleanMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,946 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerCharacterMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,947 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerNumberMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,947 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerInputStreamMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,947 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerReaderBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,947 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.QuarkusServerFileBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,947 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerByteArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,947 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerDefaultTextPlainBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,948 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.ForbiddenExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,948 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.AuthenticationRedirectExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,948 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.AuthenticationCompletionExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,948 DEBUG [io.qua.arc.run.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.rest.runtime.__QuarkusInit and qualifiers []. The bean might have been marked as unused and removed during build.
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=jar:file:///home/hebgen/epafi/target/quarkus-app/app/ngsild4ai-1.0.0-SNAPSHOT.jar!/application.properties] with ordinal 250
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=mcp-stdio-config-source] with ordinal 50
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648
+2025-07-14 11:42:30,988 DEBUG [io.sma.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+2025-07-14 11:42:31,062 DEBUG [io.net.uti.int.log.InternalLoggerFactory] (Thread-1) Using SLF4J as the default logging framework
+2025-07-14 11:42:31,079 DEBUG [io.net.uti.int.PlatformDependent0] (Thread-1) -Dio.netty.noUnsafe: false
+2025-07-14 11:42:31,079 DEBUG [io.net.uti.int.PlatformDependent0] (Thread-1) Java version: 17
+2025-07-14 11:42:31,080 DEBUG [io.net.uti.int.PlatformDependent0] (Thread-1) java.nio.Buffer.address: available
+2025-07-14 11:42:31,080 DEBUG [io.net.uti.int.PlatformDependent0] (Thread-1) java.nio.Bits.unaligned: available, true
+2025-07-14 11:42:31,082 DEBUG [io.net.uti.int.PlatformDependent0] (Thread-1) java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-07-14 11:42:31,082 DEBUG [io.net.uti.int.PlatformDependent] (Thread-1) sun.misc.Unsafe: available
+2025-07-14 11:42:31,082 DEBUG [io.net.uti.int.PlatformDependent] (Thread-1) -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+2025-07-14 11:42:31,082 DEBUG [io.net.uti.int.PlatformDependent] (Thread-1) -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-07-14 11:42:31,082 DEBUG [io.net.uti.int.PlatformDependent] (Thread-1) -Dio.netty.maxDirectMemory: -1 bytes
+2025-07-14 11:42:31,082 DEBUG [io.net.uti.int.PlatformDependent] (Thread-1) -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-07-14 11:42:31,083 DEBUG [io.net.uti.int.CleanerJava9] (Thread-1) java.nio.ByteBuffer.cleaner(): available
+2025-07-14 11:42:31,083 DEBUG [io.net.uti.int.PlatformDependent] (Thread-1) -Dio.netty.noPreferDirect: false
+2025-07-14 11:42:31,084 DEBUG [io.net.cha.DefaultChannelId] (Thread-1) -Dio.netty.processId: 1325595 (auto-detected)
+2025-07-14 11:42:31,086 DEBUG [io.net.cha.DefaultChannelId] (Thread-1) -Dio.netty.machineId: a0:76:06:9b:ea:c0:91:09 (user-set)
+2025-07-14 11:42:31,086 DEBUG [io.ver.cor.log.LoggerFactory] (main) Using io.quarkus.vertx.core.runtime.VertxLogDelegateFactory
+2025-07-14 11:42:31,093 DEBUG [io.qua.ver.cor.run.VertxCoreRecorder] (main) Vert.x Cache configured to: /tmp/vertx-cache/3200009761618772330
+2025-07-14 11:42:31,116 DEBUG [io.net.uti.ResourceLeakDetector] (main) -Dio.netty.leakDetection.level: simple
+2025-07-14 11:42:31,116 DEBUG [io.net.uti.ResourceLeakDetector] (main) -Dio.netty.leakDetection.targetRecords: 4
+2025-07-14 11:42:31,126 DEBUG [io.net.cha.MultithreadEventLoopGroup] (main) -Dio.netty.eventLoopThreads: 128
+2025-07-14 11:42:31,130 DEBUG [io.net.uti.con.GlobalEventExecutor] (main) -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-07-14 11:42:31,133 DEBUG [io.net.uti.int.InternalThreadLocalMap] (main) -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-07-14 11:42:31,133 DEBUG [io.net.uti.int.InternalThreadLocalMap] (main) -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-07-14 11:42:31,136 DEBUG [io.net.cha.nio.NioEventLoop] (main) -Dio.netty.noKeySetOptimization: false
+2025-07-14 11:42:31,136 DEBUG [io.net.cha.nio.NioEventLoop] (main) -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-07-14 11:42:31,139 DEBUG [io.net.uti.int.PlatformDependent] (main) org.jctools-core.MpscChunkedArrayQueue: available
+2025-07-14 11:42:31,154 DEBUG [io.qua.ver.cor.run.VertxCoreRecorder] (main) Vertx has Native Transport Enabled: false
+2025-07-14 11:42:31,388 INFO  [eu.nec.ngs.mcp.con.MCPController] (main) Init
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+{"jsonrpc":"2.0","method":"notifications/tools/list_changed"}
+2025-07-14 11:42:31,468 INFO  [eu.nec.ngs.mcp.con.MCPController] (main) Init done
+2025-07-14 11:42:31,502 DEBUG [io.net.uti.NetUtil] (vert.x-eventloop-thread-2) -Djava.net.preferIPv4Stack: false
+2025-07-14 11:42:31,502 DEBUG [io.net.uti.NetUtil] (vert.x-eventloop-thread-2) -Djava.net.preferIPv6Addresses: false
+2025-07-14 11:42:31,504 DEBUG [io.net.uti.NetUtilInitializations] (vert.x-eventloop-thread-2) Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+2025-07-14 11:42:31,505 DEBUG [io.net.uti.NetUtil] (vert.x-eventloop-thread-2) /proc/sys/net/core/somaxconn: 4096
+2025-07-14 11:42:31,522 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.numHeapArenas: 128
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.numDirectArenas: 128
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.pageSize: 8192
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.maxOrder: 3
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.chunkSize: 65536
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.smallCacheSize: 256
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.normalCacheSize: 64
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-07-14 11:42:31,523 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-07-14 11:42:31,524 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.useCacheForAllThreads: false
+2025-07-14 11:42:31,524 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-07-14 11:42:31,524 DEBUG [io.net.buf.PooledByteBufAllocator] (vert.x-eventloop-thread-2) -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: true
+2025-07-14 11:42:31,548 DEBUG [io.net.buf.ByteBufUtil] (vert.x-eventloop-thread-2) -Dio.netty.allocator.type: pooled
+2025-07-14 11:42:31,548 DEBUG [io.net.buf.ByteBufUtil] (vert.x-eventloop-thread-2) -Dio.netty.threadLocalDirectBufferSize: 0
+2025-07-14 11:42:31,548 DEBUG [io.net.buf.ByteBufUtil] (vert.x-eventloop-thread-2) -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-07-14 11:42:31,549 DEBUG [io.net.boo.ChannelInitializerExtensions] (vert.x-eventloop-thread-2) -Dio.netty.bootstrap.extensions: null
+2025-07-14 11:42:31,570 INFO  [io.quarkus] (main) mcp 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.20.0) started in 0.945s. Listening on: http://0.0.0.0:22222
+2025-07-14 11:42:31,570 INFO  [io.quarkus] (main) Profile prod activated.
+2025-07-14 11:42:31,570 INFO  [io.quarkus] (main) Installed features: [cache, cdi, mcp-server-sse, mcp-server-stdio, rest, rest-client, rest-client-jackson, smallrye-context-propagation, vertx]
