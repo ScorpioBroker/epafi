@@ -99,6 +99,31 @@ public class MCPController {
 	@ConfigProperty(name = "mcp.query.type")
 	String mcpQueryTypeDescription;
 
+	// Temporal query configuration properties
+	@ConfigProperty(name = "mcp.temporal.query.description")
+	String mcpTemporalQueryDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.timerel")
+	String mcpTemporalTimerelDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.timeAt")
+	String mcpTemporalTimeAtDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.endTimeAt")
+	String mcpTemporalEndTimeAtDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.timeproperty")
+	String mcpTemporalTimepropertyDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.aggrMethods")
+	String mcpTemporalAggrMethodsDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.aggrPeriodDuration")
+	String mcpTemporalAggrPeriodDurationDescription;
+
+	@ConfigProperty(name = "mcp.temporal.query.lastN")
+	String mcpTemporalLastNDescription;
+
 	// Create entity properties
 	@ConfigProperty(name = "mcp.create.description")
 	String mcpCreateDescription;
@@ -205,6 +230,75 @@ public class MCPController {
 		registerGetCoordinatesForAddressTool();
 	}
 
+	private void registerGetTemporalEntitiesTool() {
+		if (mcpTemporalQueryDescription != null && !mcpTemporalQueryDescription.equals(DEACTIVATED)) {
+			toolManager.newTool("getTemporalEntities").setDescription(mcpTemporalQueryDescription)
+					.addArgument("attrs", mcpQueryAttrsDescription, false, String.class)
+					.addArgument("coordinates", mcpQueryCoordinatesDescription, false, String.class)
+					.addArgument("csf", mcpQueryCsfDescription, false, String.class)
+					.addArgument("datasetId", mcpQueryDatasetIdDescription, false, String.class)
+					.addArgument("geometry", mcpQueryGeometryDescription, false, String.class)
+					.addArgument("geometryProperty", mcpQueryGeometryPropertyDescription, false, String.class)
+					.addArgument("geoproperty", mcpQueryGeopropertyDescription, false, String.class)
+					.addArgument("georel", mcpQueryGeorelDescription, false, String.class)
+					.addArgument("id", mcpQueryIdDescription, false, String.class)
+					.addArgument("idPattern", mcpQueryIdPatternDescription, false, String.class)
+					.addArgument("join", mcpQueryJoinDescription, false, String.class)
+					.addArgument("joinLevel", mcpQueryJoinLevelDescription, false, Integer.class)
+					.addArgument("jsonKeys", mcpQueryJsonKeysDescription, false, String.class)
+					.addArgument("lang", mcpQueryLangDescription, false, String.class)
+					.addArgument("omit", mcpQueryOmitDescription, false, String.class)
+					.addArgument("pick", mcpQueryPickDescription, false, String.class)
+					.addArgument("q", mcpQueryQDescription, false, String.class)
+					.addArgument("scopeQ", mcpQueryScopeQDescription, false, String.class)
+					.addArgument("type", mcpQueryTypeDescription, false, String.class)
+					// Temporal query parameters
+					.addArgument("timerel", mcpTemporalTimerelDescription, false, String.class)
+					.addArgument("timeAt", mcpTemporalTimeAtDescription, false, String.class)
+					.addArgument("endTimeAt", mcpTemporalEndTimeAtDescription, false, String.class)
+					.addArgument("timeproperty", mcpTemporalTimepropertyDescription, false, String.class)
+					.addArgument("aggrMethods", mcpTemporalAggrMethodsDescription, false, String.class)
+					.addArgument("aggrPeriodDuration", mcpTemporalAggrPeriodDurationDescription, false, String.class)
+					.addArgument("lastN", mcpTemporalLastNDescription, false, String.class)
+					.setAsyncHandler(ta -> {
+						Map<String, Object> parameters = ta.args();
+						String attrs = (String) parameters.get("attrs");
+						String coordinates = (String) parameters.get("coordinates");
+						String csf = (String) parameters.get("csf");
+						String datasetId = (String) parameters.get("datasetId");
+						String geometry = (String) parameters.get("geometry");
+						String geometryProperty = (String) parameters.get("geometryProperty");
+						String geoproperty = (String) parameters.get("geoproperty");
+						String georel = (String) parameters.get("georel");
+						String id = (String) parameters.get("id");
+						String idPattern = (String) parameters.get("idPattern");
+						String join = (String) parameters.get("join");
+						Integer joinLevel = (Integer) parameters.get("joinLevel");
+						String jsonKeys = (String) parameters.get("jsonKeys");
+						String lang = (String) parameters.get("lang");
+						String omit = (String) parameters.get("omit");
+						String pick = (String) parameters.get("pick");
+						String q = (String) parameters.get("q");
+						String scopeQ = (String) parameters.get("scopeQ");
+						String type = (String) parameters.get("type");
+						// Temporal parameters
+						String timerel = (String) parameters.get("timerel");
+						String timeAt = (String) parameters.get("timeAt");
+						String endTimeAt = (String) parameters.get("endTimeAt");
+						String timeproperty = (String) parameters.get("timeproperty");
+						String aggrMethods = (String) parameters.get("aggrMethods");
+						String aggrPeriodDuration = (String) parameters.get("aggrPeriodDuration");
+						String lastN = (String) parameters.get("lastN");
+
+						return getTemporalEntities(attrs, coordinates, csf, datasetId, geometry, geometryProperty,
+								geoproperty, georel, id, idPattern, join, joinLevel, jsonKeys, lang, omit, pick,
+								q, scopeQ, type, timerel, timeAt, endTimeAt, timeproperty, aggrMethods,
+								aggrPeriodDuration, lastN)
+								.onItem().transform(t -> ToolResponse.success(t));
+					}).register();
+		}
+	}
+
 	private void registerGetEntitesTool() {
 		if (mcpQueryDescription != null && !mcpQueryDescription.equals(DEACTIVATED)) {
 			toolManager.newTool("getEntities").setDescription(mcpQueryDescription)
@@ -253,6 +347,101 @@ public class MCPController {
 								.onItem().transform(t -> ToolResponse.success(t));
 					}).register();
 		}
+	}
+
+	public Uni<String> getTemporalEntities(String attrs, String coordinates, String csf, String datasetId,
+			String geometry, String geometryProperty, String geoproperty, String georel, String id,
+			String idPattern, String join, Integer joinLevel, String jsonKeys, String lang, String omit,
+			String pick, String q, String scopeQ, String type, String timerel, String timeAt, String endTimeAt,
+			String timeproperty, String aggrMethods, String aggrPeriodDuration, String lastN) {
+
+		HttpRequest<Buffer> tmp = webClient.getAbs(baseUrl + "/ngsi-ld/v1/temporal/entities")
+				.putHeader("Accept", "application/json");
+
+		// Original entity query parameters
+		if (id != null) {
+			tmp.addQueryParam("id", id);
+		}
+		if (type != null) {
+			tmp.addQueryParam("type", type);
+		}
+		if (idPattern != null) {
+			tmp.addQueryParam("idPattern", idPattern);
+		}
+		if (attrs != null) {
+			tmp.addQueryParam("attrs", attrs);
+		}
+		if (q != null) {
+			tmp.addQueryParam("q", q);
+		}
+		if (geometry != null) {
+			tmp.addQueryParam("geometry", geometry);
+		}
+		if (georel != null) {
+			tmp.addQueryParam("georel", georel);
+		}
+		if (coordinates != null) {
+			tmp.addQueryParam("coordinates", coordinates);
+		}
+		if (geoproperty != null) {
+			tmp.addQueryParam("geoproperty", geoproperty);
+		}
+		if (geometryProperty != null) {
+			tmp.addQueryParam("geometryProperty", geometryProperty);
+		}
+		if (lang != null) {
+			tmp.addQueryParam("lang", lang);
+		}
+		if (scopeQ != null) {
+			tmp.addQueryParam("scopeQ", scopeQ);
+		}
+		if (csf != null) {
+			tmp.addQueryParam("csf", csf);
+		}
+		if (datasetId != null) {
+			tmp.addQueryParam("datasetId", datasetId);
+		}
+		if (join != null) {
+			tmp.addQueryParam("join", join);
+		}
+		if (joinLevel != null) {
+			tmp.addQueryParam("joinLevel", joinLevel.toString());
+		}
+		if (jsonKeys != null) {
+			tmp.addQueryParam("jsonKeys", jsonKeys);
+		}
+		if (omit != null) {
+			tmp.addQueryParam("omit", omit);
+		}
+		if (pick != null) {
+			tmp.addQueryParam("pick", pick);
+		}
+
+		// Temporal query parameters
+		if (timerel != null) {
+			tmp.addQueryParam("timerel", timerel);
+		}
+		if (timeAt != null) {
+			tmp.addQueryParam("timeAt", timeAt);
+		}
+		if (endTimeAt != null) {
+			tmp.addQueryParam("endTimeAt", endTimeAt);
+		}
+		if (timeproperty != null) {
+			tmp.addQueryParam("timeproperty", timeproperty);
+		}
+		if (aggrMethods != null) {
+			tmp.addQueryParam("aggrMethods", aggrMethods);
+		}
+		if (aggrPeriodDuration != null) {
+			tmp.addQueryParam("aggrPeriodDuration", aggrPeriodDuration);
+		}
+		if (lastN != null) {
+			tmp.addQueryParam("lastN", lastN);
+		}
+
+		tmp.addQueryParam("limit", "1000");
+		return tmp.send().onItem().transform(resp -> resp.bodyAsString());
 	}
 
 	private void registerGetTypesTool() {
@@ -381,7 +570,8 @@ public class MCPController {
 			String geometryProperty, String geoproperty, String georel, String id, String idPattern, String join,
 			Integer joinLevel, String jsonKeys, String lang, String omit, String pick, String q, String scopeQ,
 			String type) {
-		HttpRequest<Buffer> tmp = webClient.getAbs(baseUrl + "/ngsi-ld/v1/entities").putHeader("Accept", "application/json");
+		HttpRequest<Buffer> tmp = webClient.getAbs(baseUrl + "/ngsi-ld/v1/entities").putHeader("Accept",
+				"application/json");
 		if (id != null) {
 			tmp.addQueryParam("id", id);
 		}
@@ -424,7 +614,8 @@ public class MCPController {
 	}
 
 	public Uni<String> getTypes() {
-		return webClient.getAbs(baseUrl + "/ngsi-ld/v1/types").putHeader("Accept", "application/json").addQueryParam("details", "true")
+		return webClient.getAbs(baseUrl + "/ngsi-ld/v1/types").putHeader("Accept", "application/json")
+				.addQueryParam("details", "true")
 				.addQueryParam("bbox", "true").send().onItem().transform(resp -> resp.bodyAsString());
 
 	}
